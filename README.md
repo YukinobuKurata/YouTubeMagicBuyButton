@@ -7,5 +7,6 @@ YouTubeMagicBuyButton
 http://wisdommingle.com
 
 Copyright (c) Yukinobu Kurata (倉田幸暢) ( http://wisdommingle.com )
+
 Dual licensed under the GPLv3 License.
  
