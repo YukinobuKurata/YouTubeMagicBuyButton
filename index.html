@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja" xml:lang="ja">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>ページタイトル</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>YouTube動画があらかじめ設定した時間再生された後に購入リンクを表示する仕組み（HTML、JavaScript、CSS） </title>
 	
 	<script type="text/javascript">
     /*
     * 
     * Copyright (c) Yukinobu Kurata (倉田幸暢) ( http://wisdommingle.com )
-    * Licensed under the GPLv3 License.
+    * Released under the MIT license
+    * http://wisdommingle.com/mit-license/
     */
   	
 		//**************************************************************************
@@ -26,10 +27,10 @@
       //★動画プレーヤーの横幅と縦幅を設定する（ピクセル数）。
               
               //横幅
-              var videoWidth = 430;
+              var videoWidth = 530;
               
               //縦幅
-              var videoHeight = 242;
+              var videoHeight = 298;
               
       //★表示させるYouTube動画の「動画ID」を設定する。
               var youtubeVideoID = "DA6x6DpEREA";
@@ -42,16 +43,27 @@
 	</script>
 	
 	<style type="text/css">
+        
+		form#timerDisplay{
+            font-size: 130%;
+            font-weight: bold;
+            color: #ff0000;
+		}
 		
 		form#timerDisplay input{
 			border: none;
 			text-align: right;
-			width: 20px;
+			width: 30px;
+            font-size: 110%;
+            color: #ff0000;
 		}
 		
 		#hidden_contents {
 			text-align: center;
 			margin: 20px auto 20px auto;
+            font-size: 120%;
+            font-weight: bold;
+            color: #0000ff;
 		}
 		
 		#hidden_contents #buy_button {
@@ -66,8 +78,8 @@
 <!-- この<div>タグは、下記のJavaScriptの働きによって、ページが表示される前に自動的に<iframe>タグ（動画プレーヤー）に置き換えられます。 -->
 <div id="iframe_player_api"></div>
 
-<form name="timerDisplay" id="timerDisplay" style="visibility: hidden">
-	カウントダウン： 
+    <form name="timerDisplay" id="timerDisplay" style="visibility: hidden; display: none;">
+	隠し要素の表示までのカウントダウン：
 	<input type="text" id="timerMinutes" value="">分
 	<input type="text" id="timerSecond" value="">秒
 	<input type="text" id="timerSecondATenth" value="">
@@ -75,11 +87,12 @@
 
 <div id="hidden_contents" style="visibility: hidden">
 	
-	（指定した時間が経過したときに表示させるもの（「購入ボタン」など）を、<br />
+	（指定した時間が経過したときに表示させるもの<br />
+    （「購入ボタン」など）を、<br />
 	この部分（&lt;div&gt;タグのなか）に記入してください。）<br />
 	<br />
 	
-	<a id="buy_button" href="https://www.google.co.jp/" target="_blank">購入リンク（の例）</a>
+	→　<a id="buy_button" href="http://www.flickr.com/photos/smallgate/4214979201/" target="_blank">購入リンク（の例）</a>　←
 	
 </div>
 
@@ -201,7 +214,7 @@
 								//右の値は「パラメータの値」。
 								'modestbranding': 1,
 								'autohide': 0,
-                                'fs': 1
+                                'rel': 0
 						},
 						//「イベントリスナー」
 						events: {
@@ -220,8 +233,9 @@
       		if (!secATenth) secATenth = 0;
 					
 					if( displayCDTimer == 1 ){
-              document.getElementById("timerDisplay").style.visibility = "visible";
-					}
+                        document.getElementById("timerDisplay").style.visibility = "visible";
+                        document.getElementById("timerDisplay").style.display = "block";
+                    }
 					
 					//上でに設定した「分」の数字を<input>タグの値に挿入する
 					document.getElementById("timerMinutes").value = min;
