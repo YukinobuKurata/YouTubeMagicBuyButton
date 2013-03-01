@@ -3,9 +3,22 @@ YouTubeMagicBuyButton
 
 「YouTube動画があらかじめ設定した時間再生された後に購入リンクを表示する仕組み（HTML、JavaScript、CSS） 」
 
-Copyright (c) Yukinobu Kurata (倉田幸暢) ( http://wisdommingle.com )
+&lt;iframe&gt;タグの埋め込みコードをつかったHTML5形式の動画プレーヤーです。
+
+
+倉田幸暢(Yukinobu Kurata)
+
+http://wisdommingle.com
+
+
+Copyright (c) 2013 Yukinobu Kurata
 
 Released under the MIT license
+
+http://jsrun.it/assets/d/H/m/Z/dHmZ2
+
+
+MITライセンスについて
 
 http://wisdommingle.com/mit-license/
  
