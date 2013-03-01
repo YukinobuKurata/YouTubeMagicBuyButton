@@ -14,8 +14,7 @@ http://wisdommingle.com
 Copyright (c) 2013 Yukinobu Kurata
 
 Released under the MIT license
-
-http://jsrun.it/assets/d/H/m/Z/dHmZ2
+https://github.com/YukinobuKurata/YouTubeMagicBuyButton/blob/master/MIT-LICENSE.txt
 
 
 MITライセンスについて
