@@ -72,9 +72,51 @@
 		}
 		
 		#hidden_contents #buy_button {
-			text-align: center;
-		}
-		
+			margin: 0px auto 0px auto;
+			
+      position: relative;
+      display: block;
+      width: 150px;
+      padding: 15px 0;
+      text-align: center;
+      cursor: pointer;
+      
+      color: white;
+      text-decoration: none;
+      line-height: 1;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-shadow: -1px -1px 1px #C60;
+      
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+      box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
+      -webkit-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
+      -moz-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
+      -ms-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
+      -o-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
+    }
+    #hidden_contents #buy_button:link, 
+    #hidden_contents #buy_button:visited {
+        background: #F70;
+    }
+    #hidden_contents #buy_button:hover {
+        background: #FB3;
+    }
+    #hidden_contents #buy_button:active {
+        background: #FC2;
+        
+        box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+        -webkit-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+        -moz-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+        -ms-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+        -o-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+        top: 5px;
+    }
+    
 	</style>
 	
 </head>
@@ -97,7 +139,7 @@
 	この部分（&lt;div&gt;タグのなか）に記入してください。）<br />
 	<br />
 	
-	→　<a id="buy_button" href="http://www.flickr.com/photos/smallgate/4214979201/" target="_blank">購入リンク（の例）</a>　←
+	<a id="buy_button" href="http://www.flickr.com/photos/smallgate/4214979201/" target="_blank">購入する</a>
 	
 </div>
 
