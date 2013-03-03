@@ -1,7 +1,8 @@
 YouTubeMagicBuyButton
 =====================
 
-「YouTube動画があらかじめ設定した時間再生された後に購入リンクを表示する仕組み（HTML、JavaScript、CSS） 」<br />
+「YouTube動画と連動してあらかじめ設定した時間になると購入ボタンが表示される仕組み （HTML、IFrameプレーヤーAPI（JavaScript）、CSS）」<br />
+
 &lt;iframe&gt;タグの埋め込みコードをつかったHTML5形式の動画プレーヤーです。
 
 倉田幸暢(Yukinobu Kurata)<br />
