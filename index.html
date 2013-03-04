@@ -53,25 +53,25 @@
 	<style type="text/css">
 				
 		form#timerDisplay{
-						font-size: 130%;
-						font-weight: bold;
-						color: #ff0000;
+			font-size: 130%;
+			font-weight: bold;
+			color: #ff0000;
 		}
 		
 		form#timerDisplay input{
 			border: none;
 			text-align: right;
 			width: 30px;
-						font-size: 110%;
-						color: #ff0000;
+			font-size: 110%;
+			color: #ff0000;
 		}
 		
 		#hidden_contents {
 			text-align: center;
 			margin: 20px auto 20px auto;
-						font-size: 120%;
-						font-weight: bold;
-						color: #0000ff;
+			font-size: 120%;
+			font-weight: bold;
+			color: #0000ff;
 		}
 		
 		#hidden_contents #buy_button {
@@ -104,20 +104,20 @@
 		}
 		#hidden_contents #buy_button:link, 
 		#hidden_contents #buy_button:visited {
-				background: #F70;
+			background: #F70;
 		}
 		#hidden_contents #buy_button:hover {
-				background: #FB3;
+			background: #FB3;
 		}
 		#hidden_contents #buy_button:active {
-				background: #FC2;
-				
-				box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
-				-webkit-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
-				-moz-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
-				-ms-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
-				-o-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
-				top: 5px;
+			background: #FC2;
+			
+			box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+			-webkit-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+			-moz-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+			-ms-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+			-o-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+			top: 5px;
 		}
 		
 	</style>
@@ -128,7 +128,7 @@
 <!-- この<div>タグは、下記のJavaScriptの働きによって、ページが表示される前に自動的に<iframe>タグ（動画プレーヤー）に置き換えられます。 -->
 <div id="iframe_player_api"></div>
 
-		<form name="timerDisplay" id="timerDisplay" style="visibility: hidden; display: none;">
+<form name="timerDisplay" id="timerDisplay" style="visibility: hidden; display: none;">
 	隠し要素の表示までのカウントダウン：
 	<input type="text" id="timerMinutes" value="">分
 	<input type="text" id="timerSecond" value="">秒
@@ -148,91 +148,91 @@
 
 
 	<script type="text/javascript">
-	
-	//10分の1秒
-	var secATenth = 0;
-	
-	var TimerCD; //タイマーを格納する変数（タイマーID）の宣言
-	
-	//事前に「PAUSED」の状態になって「StopCountdown()」が実行されている場合だけ、
-	//新たに「StartCountdown()」を実行できるようにするためのフラグ。
-	//再生途中で「BUFFERING」の状態になると、そのあとで、「PLAYING」の状態になり
-	//その度に、すでに「StartCountdown()」を実行しているにもかかわらず、
-	//「StartCountdown()」が複数回実行されてしまうことになる。
-	//このことのを防ぐためのフラグ。
-	var OnAheadDoneStop = 1;
-	
-	//隠し要素を表示した後はカウントダウンをやめる。
-	var RepeatCountdown = 1;
-	
-	//カウントダウン関数を100ミリ秒毎に呼び出す関数
-	function StartCountdown(){
-		TimerCD = setInterval("CountDown()",100);
-	}
-	
-	//タイマー停止関数
-	function StopCountdown(){
-		clearInterval(TimerCD);
-	}
-	
-	//カウントダウン関数
-	function CountDown(){
-		
-		min = document.getElementById("timerMinutes").value;
-		sec = document.getElementById("timerSecond").value;
-		secATenth = document.getElementById("timerSecondATenth").value;
-		
-		if( (min == "") && (sec == "") ){
-			alert("「分」と「秒」の数字を設定してください。");
-		}else{
-			if (min == "") min = 0;
-			min = parseInt(min);
-			
-			if (sec == "") sec = 0;
-			sec = parseInt(sec);
-			
-			if (secATenth == "") secATenth = 0;
-			secATenth = parseInt(secATenth);
-			
-			TMWrite( min * 60 * 10 + sec * 10 + secATenth -1 );
-			
-			//min(=0) *60 * 10 + sec(=100) * 10 + secATenth(=0) -1 = 999（1/10秒）
-			
-			
-		}
-	}
-	
-	//残り時間を書き出す関数
-	function TMWrite(int){
-		
-		int = parseInt(int);
-		
-		if (int <= 0){
-			
-			document.getElementById("timerSecondATenth").value = 0;
-			
-			document.getElementById("hidden_contents").style.visibility = "visible";
-			
-			clearInterval(TimerCD);
-			
-			//隠し要素を表示した後はカウントダウンをやめる。
-			RepeatCountdown = 0;
-			
-		}else{
-			
-			//残り分数はintを600で割って切り捨てる
-			document.getElementById("timerMinutes").value = Math.floor(int/600);
-			
-			//割ったあとの余り（残り秒数）
-			var amariSecond = int % 600;
-			document.getElementById("timerSecond").value = Math.floor(amariSecond/10);
-			
-			//割ったあとの余り（残り秒数（10分の1秒））
-			var amariSecondATenth = amariSecond % 10;
-			document.getElementById("timerSecondATenth").value = amariSecondATenth;
-			
-		}
-	}
+  	
+  	//10分の1秒
+  	var secATenth = 0;
+  	
+  	var TimerCD; //タイマーを格納する変数（タイマーID）の宣言
+  	
+  	//事前に「PAUSED」の状態になって「StopCountdown()」が実行されている場合だけ、
+  	//新たに「StartCountdown()」を実行できるようにするためのフラグ。
+  	//再生途中で「BUFFERING」の状態になると、そのあとで、「PLAYING」の状態になり
+  	//その度に、すでに「StartCountdown()」を実行しているにもかかわらず、
+  	//「StartCountdown()」が複数回実行されてしまうことになる。
+  	//このことのを防ぐためのフラグ。
+  	var OnAheadDoneStop = 1;
+  	
+  	//隠し要素を表示した後はカウントダウンをやめる。
+  	var RepeatCountdown = 1;
+  	
+  	//カウントダウン関数を100ミリ秒毎に呼び出す関数
+  	function StartCountdown(){
+  		TimerCD = setInterval("CountDown()",100);
+  	}
+  	
+  	//タイマー停止関数
+  	function StopCountdown(){
+  		clearInterval(TimerCD);
+  	}
+  	
+  	//カウントダウン関数
+  	function CountDown(){
+  		
+  		min = document.getElementById("timerMinutes").value;
+  		sec = document.getElementById("timerSecond").value;
+  		secATenth = document.getElementById("timerSecondATenth").value;
+  		
+  		if( (min == "") && (sec == "") ){
+  			alert("「分」と「秒」の数字を設定してください。");
+  		}else{
+  			if (min == "") min = 0;
+  			min = parseInt(min);
+  			
+  			if (sec == "") sec = 0;
+  			sec = parseInt(sec);
+  			
+  			if (secATenth == "") secATenth = 0;
+  			secATenth = parseInt(secATenth);
+  			
+  			TMWrite( min * 60 * 10 + sec * 10 + secATenth -1 );
+  			
+  			//min(=0) *60 * 10 + sec(=100) * 10 + secATenth(=0) -1 = 999（1/10秒）
+  			
+  			
+  		}
+  	}
+  	
+  	//残り時間を書き出す関数
+  	function TMWrite(int){
+  		
+  		int = parseInt(int);
+  		
+  		if (int <= 0){
+  			
+  			document.getElementById("timerSecondATenth").value = 0;
+  			
+  			document.getElementById("hidden_contents").style.visibility = "visible";
+  			
+  			clearInterval(TimerCD);
+  			
+  			//隠し要素を表示した後はカウントダウンをやめる。
+  			RepeatCountdown = 0;
+  			
+  		}else{
+  			
+  			//残り分数はintを600で割って切り捨てる
+  			document.getElementById("timerMinutes").value = Math.floor(int/600);
+  			
+  			//割ったあとの余り（残り秒数）
+  			var amariSecond = int % 600;
+  			document.getElementById("timerSecond").value = Math.floor(amariSecond/10);
+  			
+  			//割ったあとの余り（残り秒数（10分の1秒））
+  			var amariSecondATenth = amariSecond % 10;
+  			document.getElementById("timerSecondATenth").value = amariSecondATenth;
+  			
+  		}
+  	}
 	</script>
 	
 	
