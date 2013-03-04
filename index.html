@@ -5,121 +5,121 @@
 	<title>YouTube動画と連動してあらかじめ設定した時間になると購入ボタンが表示される仕組み （HTML、IFrameプレーヤーAPI（JavaScript）、CSS）</title>
 	
 	<script type="text/javascript">
-    /*
-    * 解説ページ
-    * http://wisdommingle.com/youtube-iframe-api-player-video-countdown-timer-magic-buy-button/
-    * 
-    * 倉田幸暢(Yukinobu Kurata)
-    * http://wisdommingle.com
-    * 
-    * Copyright (c) 2013 Yukinobu Kurata
-    * Released under the MIT license
-    * https://github.com/YukinobuKurata/YouTubeMagicBuyButton/blob/master/MIT-LICENSE.txt
-    *
-    * MITライセンスについて
-    * http://wisdommingle.com/mit-license/
-    */
-  	
+		/*
+		* 解説ページ
+		* http://wisdommingle.com/youtube-iframe-api-player-video-countdown-timer-magic-buy-button/
+		* 
+		* 倉田幸暢(Yukinobu Kurata)
+		* http://wisdommingle.com
+		* 
+		* Copyright (c) 2013 Yukinobu Kurata
+		* Released under the MIT license
+		* https://github.com/YukinobuKurata/YouTubeMagicBuyButton/blob/master/MIT-LICENSE.txt
+		*
+		* MITライセンスについて
+		* http://wisdommingle.com/mit-license/
+		*/
+		
 		//**************************************************************************
-  		
-  		//★ユーザー用の設定項目
-  		
-  		//★隠し要素を表示させるまでの時間（分、秒）を設定する。
-          		
-          		//分
-          		var min = 0;
-          		
-          		//秒
-          		var sec = 20;
-              
-      //★動画プレーヤーの横幅と縦幅を設定する（ピクセル数）。
-              
-              //横幅
-              var videoWidth = 530;
-              
-              //縦幅
-              var videoHeight = 298;
-              
-      //★表示させるYouTube動画の「動画ID」を設定する。
-              var youtubeVideoID = "DA6x6DpEREA";
-          		
-  		//★カウントダウンタイマーの表示/非表示を設定する。
-  		        //表示「1」 / 非表示「0」
-          		var displayCDTimer = 1;
-          		
+			
+			//★ユーザー用の設定項目
+			
+			//★隠し要素を表示させるまでの時間（分、秒）を設定する。
+							
+							//分
+							var min = 0;
+							
+							//秒
+							var sec = 20;
+							
+			//★動画プレーヤーの横幅と縦幅を設定する（ピクセル数）。
+							
+							//横幅
+							var videoWidth = 530;
+							
+							//縦幅
+							var videoHeight = 298;
+							
+			//★表示させるYouTube動画の「動画ID」を設定する。
+							var youtubeVideoID = "DA6x6DpEREA";
+							
+			//★カウントダウンタイマーの表示/非表示を設定する。
+							//表示「1」 / 非表示「0」
+							var displayCDTimer = 1;
+							
 		//**************************************************************************
 	</script>
 	
 	<style type="text/css">
-        
+				
 		form#timerDisplay{
-            font-size: 130%;
-            font-weight: bold;
-            color: #ff0000;
+						font-size: 130%;
+						font-weight: bold;
+						color: #ff0000;
 		}
 		
 		form#timerDisplay input{
 			border: none;
 			text-align: right;
 			width: 30px;
-            font-size: 110%;
-            color: #ff0000;
+						font-size: 110%;
+						color: #ff0000;
 		}
 		
 		#hidden_contents {
 			text-align: center;
 			margin: 20px auto 20px auto;
-            font-size: 120%;
-            font-weight: bold;
-            color: #0000ff;
+						font-size: 120%;
+						font-weight: bold;
+						color: #0000ff;
 		}
 		
 		#hidden_contents #buy_button {
 			margin: 0px auto 0px auto;
 			
-      position: relative;
-      display: block;
-      width: 150px;
-      padding: 15px 0;
-      text-align: center;
-      cursor: pointer;
-      
-      color: white;
-      text-decoration: none;
-      line-height: 1;
-      font-weight: bold;
-      letter-spacing: 3px;
-      text-shadow: -1px -1px 1px #C60;
-      
-      border-radius: 10px;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-      box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
-      -webkit-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
-      -moz-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
-      -ms-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
-      -o-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
-    }
-    #hidden_contents #buy_button:link, 
-    #hidden_contents #buy_button:visited {
-        background: #F70;
-    }
-    #hidden_contents #buy_button:hover {
-        background: #FB3;
-    }
-    #hidden_contents #buy_button:active {
-        background: #FC2;
-        
-        box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
-        -webkit-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
-        -moz-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
-        -ms-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
-        -o-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
-        top: 5px;
-    }
-    
+			position: relative;
+			display: block;
+			width: 150px;
+			padding: 15px 0;
+			text-align: center;
+			cursor: pointer;
+			
+			color: white;
+			text-decoration: none;
+			line-height: 1;
+			font-weight: bold;
+			letter-spacing: 3px;
+			text-shadow: -1px -1px 1px #C60;
+			
+			border-radius: 10px;
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			-ms-border-radius: 10px;
+			-o-border-radius: 10px;
+			box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
+			-webkit-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
+			-moz-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
+			-ms-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
+			-o-box-shadow: 0 5px 1px #C60, 0 7px 5px #CCC;
+		}
+		#hidden_contents #buy_button:link, 
+		#hidden_contents #buy_button:visited {
+				background: #F70;
+		}
+		#hidden_contents #buy_button:hover {
+				background: #FB3;
+		}
+		#hidden_contents #buy_button:active {
+				background: #FC2;
+				
+				box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+				-webkit-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+				-moz-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+				-ms-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+				-o-box-shadow: 0 0 1px #871, 0 2px 2px #CCC;
+				top: 5px;
+		}
+		
 	</style>
 	
 </head>
@@ -128,7 +128,7 @@
 <!-- この<div>タグは、下記のJavaScriptの働きによって、ページが表示される前に自動的に<iframe>タグ（動画プレーヤー）に置き換えられます。 -->
 <div id="iframe_player_api"></div>
 
-    <form name="timerDisplay" id="timerDisplay" style="visibility: hidden; display: none;">
+		<form name="timerDisplay" id="timerDisplay" style="visibility: hidden; display: none;">
 	隠し要素の表示までのカウントダウン：
 	<input type="text" id="timerMinutes" value="">分
 	<input type="text" id="timerSecond" value="">秒
@@ -138,7 +138,7 @@
 <div id="hidden_contents" style="visibility: hidden">
 	
 	（指定した時間が経過したときに表示させるもの<br />
-    （「購入ボタン」など）を、<br />
+		（「購入ボタン」など）を、<br />
 	この部分（&lt;div&gt;タグのなか）に記入してください。）<br />
 	<br />
 	
@@ -147,13 +147,13 @@
 </div>
 
 
-  <script type="text/javascript">
-  
+	<script type="text/javascript">
+	
 	//10分の1秒
-  var secATenth = 0;
-  
-  var TimerCD; //タイマーを格納する変数（タイマーID）の宣言
-  
+	var secATenth = 0;
+	
+	var TimerCD; //タイマーを格納する変数（タイマーID）の宣言
+	
 	//事前に「PAUSED」の状態になって「StopCountdown()」が実行されている場合だけ、
 	//新たに「StartCountdown()」を実行できるようにするためのフラグ。
 	//再生途中で「BUFFERING」の状態になると、そのあとで、「PLAYING」の状態になり
@@ -163,79 +163,79 @@
 	var OnAheadDoneStop = 1;
 	
 	//隠し要素を表示した後はカウントダウンをやめる。
-  var RepeatCountdown = 1;
-  
-  //カウントダウン関数を100ミリ秒毎に呼び出す関数
-  function StartCountdown(){
-    TimerCD = setInterval("CountDown()",100);
-  }
-  
-  //タイマー停止関数
-  function StopCountdown(){
-    clearInterval(TimerCD);
-  }
-  
-  //カウントダウン関数
-  function CountDown(){
-    
-  	min = document.getElementById("timerMinutes").value;
-  	sec = document.getElementById("timerSecond").value;
-  	secATenth = document.getElementById("timerSecondATenth").value;
-    
-    if( (min == "") && (sec == "") ){
-      alert("「分」と「秒」の数字を設定してください。");
-    }else{
-      if (min == "") min = 0;
-      min = parseInt(min);
-      
-      if (sec == "") sec = 0;
-      sec = parseInt(sec);
-      
-  		if (secATenth == "") secATenth = 0;
-  		secATenth = parseInt(secATenth);
-  		
-  		TMWrite( min * 60 * 10 + sec * 10 + secATenth -1 );
-  		
-  		//min(=0) *60 * 10 + sec(=100) * 10 + secATenth(=0) -1 = 999（1/10秒）
-      
-      
-    }
-  }
-  
-  //残り時間を書き出す関数
-  function TMWrite(int){
-    
-    int = parseInt(int);
-    
-    if (int <= 0){
-      
-  		document.getElementById("timerSecondATenth").value = 0;
-  		
-  		document.getElementById("hidden_contents").style.visibility = "visible";
-  		
-  		clearInterval(TimerCD);
-  		
-  		//隠し要素を表示した後はカウントダウンをやめる。
-  		RepeatCountdown = 0;
-      
-    }else{
-      
-  		//残り分数はintを600で割って切り捨てる
-  		document.getElementById("timerMinutes").value = Math.floor(int/600);
-  		
-  		//割ったあとの余り（残り秒数）
-  		var amariSecond = int % 600;
-  		document.getElementById("timerSecond").value = Math.floor(amariSecond/10);
-  		
-  		//割ったあとの余り（残り秒数（10分の1秒））
-  		var amariSecondATenth = amariSecond % 10;
-  		document.getElementById("timerSecondATenth").value = amariSecondATenth;
-      
-    }
-  }
-  </script>
-  
-  
+	var RepeatCountdown = 1;
+	
+	//カウントダウン関数を100ミリ秒毎に呼び出す関数
+	function StartCountdown(){
+		TimerCD = setInterval("CountDown()",100);
+	}
+	
+	//タイマー停止関数
+	function StopCountdown(){
+		clearInterval(TimerCD);
+	}
+	
+	//カウントダウン関数
+	function CountDown(){
+		
+		min = document.getElementById("timerMinutes").value;
+		sec = document.getElementById("timerSecond").value;
+		secATenth = document.getElementById("timerSecondATenth").value;
+		
+		if( (min == "") && (sec == "") ){
+			alert("「分」と「秒」の数字を設定してください。");
+		}else{
+			if (min == "") min = 0;
+			min = parseInt(min);
+			
+			if (sec == "") sec = 0;
+			sec = parseInt(sec);
+			
+			if (secATenth == "") secATenth = 0;
+			secATenth = parseInt(secATenth);
+			
+			TMWrite( min * 60 * 10 + sec * 10 + secATenth -1 );
+			
+			//min(=0) *60 * 10 + sec(=100) * 10 + secATenth(=0) -1 = 999（1/10秒）
+			
+			
+		}
+	}
+	
+	//残り時間を書き出す関数
+	function TMWrite(int){
+		
+		int = parseInt(int);
+		
+		if (int <= 0){
+			
+			document.getElementById("timerSecondATenth").value = 0;
+			
+			document.getElementById("hidden_contents").style.visibility = "visible";
+			
+			clearInterval(TimerCD);
+			
+			//隠し要素を表示した後はカウントダウンをやめる。
+			RepeatCountdown = 0;
+			
+		}else{
+			
+			//残り分数はintを600で割って切り捨てる
+			document.getElementById("timerMinutes").value = Math.floor(int/600);
+			
+			//割ったあとの余り（残り秒数）
+			var amariSecond = int % 600;
+			document.getElementById("timerSecond").value = Math.floor(amariSecond/10);
+			
+			//割ったあとの余り（残り秒数（10分の1秒））
+			var amariSecondATenth = amariSecond % 10;
+			document.getElementById("timerSecondATenth").value = amariSecondATenth;
+			
+		}
+	}
+	</script>
+	
+	
 	<script type="text/javascript">
 		// YouTubeのウェブサイト上にある「IFrameプレーヤーAPI」のコードを
 		// 非同期的に読み込む。
@@ -264,7 +264,7 @@
 								//右の値は「パラメータの値」。
 								'modestbranding': 1,
 								'autohide': 0,
-                                'rel': 0
+																'rel': 0
 						},
 						//「イベントリスナー」
 						events: {
@@ -277,15 +277,15 @@
 		}
 		//動画を再生する準備が整ったときに実行される関数
 		function onPlayerReady(){
-		      
-          if (!min) min = 0;
-          if (!sec) sec = 0;
-      		if (!secATenth) secATenth = 0;
+					
+					if (!min) min = 0;
+					if (!sec) sec = 0;
+					if (!secATenth) secATenth = 0;
 					
 					if( displayCDTimer == 1 ){
-                        document.getElementById("timerDisplay").style.visibility = "visible";
-                        document.getElementById("timerDisplay").style.display = "block";
-                    }
+												document.getElementById("timerDisplay").style.visibility = "visible";
+												document.getElementById("timerDisplay").style.display = "block";
+										}
 					
 					//上でに設定した「分」の数字を<input>タグの値に挿入する
 					document.getElementById("timerMinutes").value = min;
@@ -299,22 +299,22 @@
 		}
 		//動画の再生状態が変わったときに実行される関数
 		function onPlayerStateChange(event){
-		      
+					
 					switch(event.data){
 						 case YT.PlayerState.ENDED:
 								break;
 						 case YT.PlayerState.PLAYING:
-						    //動画が再生されたときに「StartCountdown()」を実行する。
+								//動画が再生されたときに「StartCountdown()」を実行する。
 								if( OnAheadDoneStop && RepeatCountdown ){
-  								
-  								StartCountdown();
-  								
-  								OnAheadDoneStop = 0;
-  								
+									
+									StartCountdown();
+									
+									OnAheadDoneStop = 0;
+									
 								}
 								break;
 						 case YT.PlayerState.PAUSED:
-						    //動画が一時停止されたときに「StopCountdown()」を実行する。
+								//動画が一時停止されたときに「StopCountdown()」を実行する。
 								StopCountdown();
 								
 								OnAheadDoneStop = 1;
@@ -327,6 +327,6 @@
 					}
 		}
 	</script>
-  
+	
 </body>
 </html>
