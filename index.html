@@ -7,17 +7,17 @@
 	<script type="text/javascript">
 		/*
 		* 解説ページ
-		* http://wisdommingle.com/youtube-iframe-api-player-video-countdown-timer-magic-buy-button/
+		* https://wisdommingle.com/youtube-iframe-api-player-video-countdown-timer-magic-buy-button/
 		* 
 		* 倉田幸暢(Yukinobu Kurata)
-		* http://wisdommingle.com
+		* https://wisdommingle.com
 		* 
 		* Copyright (c) 2013 Yukinobu Kurata
 		* Released under the MIT license
 		* https://github.com/YukinobuKurata/YouTubeMagicBuyButton/blob/master/MIT-LICENSE.txt
 		*
 		* MITライセンスについて
-		* http://wisdommingle.com/mit-license/
+		* https://wisdommingle.com/mit-license/
 		*/
 		
 		//**************************************************************************
@@ -142,7 +142,7 @@
 	この部分（&lt;div&gt;タグのなか）に記入してください。）<br />
 	<br />
 	
-	<a id="buy_button" href="http://www.flickr.com/photos/smallgate/4214979201/" target="_blank">購入する</a>
+	<a id="buy_button" href="https://www.flickr.com/photos/smallgate/4214979201/" target="_blank">購入する</a>
 	
 </div>
 
@@ -240,7 +240,7 @@
 		// YouTubeのウェブサイト上にある「IFrameプレーヤーAPI」のコードを
 		// 非同期的に読み込む。
 		var tag = document.createElement('script');
-		tag.src = "http://www.youtube.com/iframe_api";
+		tag.src = "https://www.youtube.com/iframe_api";
 		var iframePlayerApiScriptTag = document.getElementsByTagName('script')[0];
 		iframePlayerApiScriptTag.parentNode.insertBefore(tag, iframePlayerApiScriptTag);
 		
@@ -248,7 +248,7 @@
 		// 「iframe_player_api」というIDがついている<div>タグが
 		// YouTube動画プレーヤーの<iframe>タグに置き換えられる。
 		var player;
-		function onYouTubePlayerAPIReady() {
+		function onYouTubeIframeAPIReady() {
 				//ここで指定しているID名（「iframe_player_api」）がついた
 				//<div>タグ（上記）は、ページが表示される前に
 				//自動的に<iframe>タグ（動画プレーヤー）に置き換えられます。
