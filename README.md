@@ -6,17 +6,17 @@ YouTubeMagicBuyButton
 &lt;iframe&gt;タグの埋め込みコードをつかったHTML5形式の動画プレーヤーです。
 
 解説ページ<br />
-http://wisdommingle.com/youtube-iframe-api-player-video-countdown-timer-magic-buy-button/
+https://wisdommingle.com/youtube-iframe-api-player-video-countdown-timer-magic-buy-button/
 
 倉田幸暢(Yukinobu Kurata)<br />
-http://wisdommingle.com
+https://wisdommingle.com
 
 Copyright (c) 2013 Yukinobu Kurata<br />
 Released under the MIT license<br />
 https://github.com/YukinobuKurata/YouTubeMagicBuyButton/blob/master/MIT-LICENSE.txt
 
 MITライセンスについて<br />
-http://wisdommingle.com/mit-license/
+https://wisdommingle.com/mit-license/
 
 参考サイト<br />
 この仕組み（ソフトウェア）をつくるにあたっては、おもに下記のウェブサイトを参考にさせていただき、その情報やコードを利用させていただきました。<br />
